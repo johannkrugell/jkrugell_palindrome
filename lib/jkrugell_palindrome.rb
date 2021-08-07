@@ -6,7 +6,11 @@ module JkrugellPalindrome
 
 # Returns true for a palindrome, false otherwise.
 def palindrome?
-  processed_content == processed_content.reverse
+  if processed_content.empty? || processed_content.match(/\A\s*\Z/)
+    false
+  else
+    processed_content == processed_content.reverse
+  end
 end
 
 def letters
@@ -14,7 +18,7 @@ def letters
   self.scan(/[a-z\d]/i).join
 end
 
-private
+  private
 
   # Returns content for palindrome testing.
   def processed_content
